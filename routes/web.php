@@ -12,5 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layout.base');
 });
+
+Route::get('/my-donations', function () {
+    return view('my-donations');
+});
+
+Route::resource('receiver', 'ReceiverController');
