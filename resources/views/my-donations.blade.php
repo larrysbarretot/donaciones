@@ -44,6 +44,16 @@
 		  		<td>15:56</td>
 		  		<td>44444444</td>
 		  	</tr>
+            @foreach ($donations as $donation)
+                <tr>
+                    <td></td>
+                    <td>Agua 1L</td>
+                    <td>5</td>
+                    <td>30-05-2017</td>
+                    <td>15:56</td>
+                    <td>44444444</td>
+                </tr>
+            @endforeach
 		  </tbody>
 		</table>
 	</div>

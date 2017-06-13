@@ -20,3 +20,9 @@ Route::get('/my-donations', function () {
 });
 
 Route::resource('receiver', 'ReceiverController');
+
+Route::resource('donations', 'DonationsController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
