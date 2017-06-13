@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVoluntariosTable extends Migration
+class CreateSubcategoriasProductosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateVoluntariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('voluntarios', function (Blueprint $table) {
+        Schema::create('subcategorias_productos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('acopios_id')->unsigned();
-            $table->integer('user_id')->unsigned();//changed user for voluntario
+            $table->string('nombre');
+            $table->integer('categorias_productos_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('acopios_id')->references('id')->on('acopios');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('categorias_productos_id')->references('id')->on('categorias_productos');
         });
     }
 
@@ -31,6 +30,6 @@ class CreateVoluntariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('voluntarios');
+        Schema::dropIfExists('subcategorias_productos');
     }
 }

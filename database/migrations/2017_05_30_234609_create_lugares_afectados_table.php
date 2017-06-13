@@ -15,9 +15,12 @@ class CreateLugaresAfectadosTable extends Migration
     {
         Schema::create('lugares_afectados', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('siniestros_id');
-            $table->integer('lugares_id');
+            $table->integer('siniestros_id')->unsigned();
+            $table->integer('lugares_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('siniestros_id')->references('id')->on('siniestros');
+            $table->foreign('lugares_id')->references('id')->on('lugares');
         });
     }
 

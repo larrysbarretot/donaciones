@@ -15,9 +15,12 @@ class CreateDonacionesTable extends Migration
     {
         Schema::create('donaciones', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('damnificados_id');
-            $table->integer('productos_id');
+            $table->integer('damnificados_id')->unsigned();
+            $table->integer('productos_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('damnificados_id')->references('id')->on('damnificados');
+            $table->foreign('productos_id')->references('id')->on('productos');
         });
     }
 

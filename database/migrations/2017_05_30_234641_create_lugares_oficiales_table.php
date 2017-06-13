@@ -15,9 +15,12 @@ class CreateLugaresOficialesTable extends Migration
     {
         Schema::create('lugares_oficiales', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('siniestros_id');
-            $table->integer('acopios_id');
+            $table->integer('siniestros_id')->unsigned();
+            $table->integer('acopios_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('siniestros_id')->references('id')->on('siniestros');
+            $table->foreign('acopios_id')->references('id')->on('acopios');
         });
     }
 

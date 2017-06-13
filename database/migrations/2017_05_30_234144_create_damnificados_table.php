@@ -16,8 +16,10 @@ class CreateDamnificadosTable extends Migration
         Schema::create('damnificados', function (Blueprint $table) {
             $table->increments('id');
             $table->string('dni');
-            $table->integer('lugares_id');
+            $table->integer('lugares_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('lugares_id')->references('id')->on('lugares');
         });
     }
 

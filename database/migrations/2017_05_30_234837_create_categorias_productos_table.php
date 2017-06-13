@@ -16,8 +16,10 @@ class CreateCategoriasProductosTable extends Migration
         Schema::create('categorias_productos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->integer('siniestros_id');
+            $table->integer('siniestros_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('siniestros_id')->references('id')->on('siniestros');
         });
     }
 
