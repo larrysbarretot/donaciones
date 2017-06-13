@@ -30,12 +30,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
+
     Route::group(['prefix' => '/nueva-donacion'], function () {
-        Route::get('/paso-1', function () {
-            return view('admin.nueva-donacion.paso1');
-        });
-        Route::get('/paso-2', function (Request $request) {
-            return view('admin.nueva-donacion.paso2', ["dni" => $request->get('dni')]);
-        });
+
+        Route::get('/paso-1', 'DonationsController@donacionPaso1');
+
+        Route::get('/paso-2', 'DonationsController@donacionPaso2');
+
     });
 });

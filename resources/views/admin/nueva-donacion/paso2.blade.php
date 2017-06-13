@@ -29,6 +29,32 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <div class="col-md-2 ">
+                            <label class="label-control " for="categoria" required="true">Categoría: </label>
+                        </div>
+                        <div class="col-md-3">
+                            <select name="categoria" class="form-control" id="">
+                                <option value="0">Otros</option>
+                                @foreach($categorias as $categoria)
+                                <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-2 ">
+                            <label class="label-control " for="subcategoria" required="true">Subcategoría: </label>
+                        </div>
+                        <div class="col-md-3">
+                            <select name="subcategoria" class="form-control" id="">
+                                <option value="0">Otros</option>
+                                @foreach($subcategorias as $subcategoria)
+                                <option value="{{$subcategoria->id}}">{{$subcategoria->nombre}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="col-md-2 col-md-offset-2">
                             <button type="submit" class="btn btn-primary">Terminar</button>
                         </div>
@@ -54,15 +80,18 @@
                         <th>Cantidad</th>
                         <th>Fecha</th>
                         <th>Hora</th>
+                        <th>Estado</th>
                     </thead>
                     <tbody>
                         <tr>
                             <td>47676481</td>
                             <td>01231</td>
-                            <td>alimentos perecibles</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>Abarrotes</td>
+                            <td>Aceite</td>
+                            <td>2</td>
+                            <td>2017/10/06</td>
+                            <td>12:53:00</td>
+                            <td>entregado</td>
                         </tr>
                         {{--@foreach($donaciones as $donacion)
                             <tr>
