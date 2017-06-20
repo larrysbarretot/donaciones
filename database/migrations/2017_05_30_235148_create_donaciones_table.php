@@ -23,6 +23,7 @@ class CreateDonacionesTable extends Migration
 
             $table->foreign('donante_id')->references('id')->on('donantes');
             $table->foreign('siniestros_id')->references('id')->on('siniestros');
+            $table->foreign('acopios_id')->references('id')->on('acopios');
             $table->foreign('damnificados_id')->references('id')->on('damnificados');
         });
     }

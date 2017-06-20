@@ -26,4 +26,14 @@ class Producto extends Model
         return $this->belongsTo(Donacion::class, "donacion_id");
     }
 
+    public function subcategoria()
+    {
+        return $this->belongsTo(SubcategoriaProducto::class, "subcategorias_productos_id");
+    }
+
+    public function categoria()
+    {
+        return $this->belongsTo(CategoriaProducto::class, "categorias_productos_id");
+    }
+
 }

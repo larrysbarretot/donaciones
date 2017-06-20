@@ -15,13 +15,23 @@ class Donacion extends Model
         'acopios_id',
     ];
 
-    public function damnificados()
+    public function damnificado()
     {
         return $this->belongsTo(Damnificado::class, "damnificados_id");
     }
 
     public function productos()
     {
-        return $this->hasMany(Producto::class, "productos_id");
+        return $this->hasMany(Producto::class);
+    }
+
+    public function donante()
+    {
+        return $this->belongsTo(Donante::class);
+    }
+
+    public function acopio()
+    {
+        return $this->belongsTo(Acopio::class, 'acopios_id');
     }
 }
