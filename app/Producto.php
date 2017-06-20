@@ -31,11 +31,6 @@ class Producto extends Model
         return $this->belongsTo('App\Donante', 'donantes_id');
     }
 
-    public function categoria()
-    {
-        return $this->belongsTo('App\CategoriaProducto', 'categoria_producto_id');
-    }
-
     public function subcategoria()
     {
         return $this->belongsTo(SubcategoriaProducto::class, "subcategorias_productos_id");

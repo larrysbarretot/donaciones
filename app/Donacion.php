@@ -34,4 +34,9 @@ class Donacion extends Model
     {
         return $this->belongsTo(Acopio::class, 'acopios_id');
     }
+
+    public function siniestro()
+    {
+        return $this->belongsTo(Siniestro::class, 'siniestros_id');
+    }
 }

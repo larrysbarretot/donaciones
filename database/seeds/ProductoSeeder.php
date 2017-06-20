@@ -1,5 +1,6 @@
 <?php
 
+use App\Donacion;
 use App\SubcategoriaProducto;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
@@ -30,6 +31,7 @@ class ProductoSeeder extends Seeder
             for($j=0; $j<$faker->numberBetween(1, 50); $j++){//cantidad de productos
                 $subcategoria = $faker->numberBetween(1, 16);
                 $subcategoria = SubcategoriaProducto::find($faker->numberBetween(1, 16));
+                $donacion = Donacion::find($i);
                 \App\Producto::create([
                     'codigo' => $faker->randomNumber(8),
                     'cantidad' => $faker->numberBetween(5, 20),
@@ -38,6 +40,7 @@ class ProductoSeeder extends Seeder
                     'receptores_id' => null,
                     'donantes_id' => $i,
                     'donacion_id' => $i,
+                    'created_at' => $donacion->created_at
                 ]);
             }
 

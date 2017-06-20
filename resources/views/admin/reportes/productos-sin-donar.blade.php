@@ -21,6 +21,8 @@
                                     <th>Categoría</th>
                                     <th>Subcategoría</th>
                                     <th>Cantidad</th>
+                                    <th>Donador(DNI)</th>
+                                    <th>Fecha</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -30,6 +32,8 @@
                                         <td>{{$producto->categoria}}</td>
                                         <td>{{$producto->subcategoria}}</td>
                                         <td>{{$producto->cantidad}}</td>
+                                        <td>{{$producto->dni}}</td>
+                                        <td>{{$producto->fecha}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

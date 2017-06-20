@@ -20,6 +20,7 @@ class DonacionSeeder extends Seeder
                 'donante_id' => $i,
                 'siniestros_id' => 1,
                 'acopios_id' => $faker->numberBetween(1,2),
+                'created_at' => $faker->dateTime(),
             ]);
         }
     }
