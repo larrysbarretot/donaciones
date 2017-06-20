@@ -25,4 +25,13 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    /**
+     * Muestra la seccion de quienes somos
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function quienesSomos()
+    {
+        return view('quienes-somos');
+    }
 }

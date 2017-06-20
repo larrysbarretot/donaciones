@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('layout.base');
 });
+Route::get('/quienes-somos', 'HomeController@quienesSomos');
+
 
 Route::get('/my-donations', 'DonationsController@index');
 
@@ -37,4 +39,14 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('/terminado', 'DonationsController@terminado');
     });
+
+    Route::get('/reportes', function(){
+        return view('admin.reportes.panel-reportes');
+    });
+
+    Route::get('/reportes/productos', 'Reportes\ReporteProductosController@productos');
+
+    Route::get('/reportes/productos-sin-donar', 'Reportes\ReporteProductosController@productosSinDonar');
+
+    Route::get('/reportes/donaciones', 'Reportes\ReporteDonacionesController@donaciones');
 });
