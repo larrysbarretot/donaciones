@@ -18,6 +18,9 @@
                         <li class="list-group-item">
                             <a class="" href="#">Entregar donación</a>
                         </li>
+                        <li class="list-group-item">
+                            <a class="" href="/reportes">Reportes</a>
+                        </li>
                     </ul>
                 </div>
             </div>
