@@ -40,6 +40,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/terminado', 'DonationsController@terminado');
     });
 
+    Route::get('/registros', 'DonationsController@misRegistros');
+
     Route::get('/reportes', function(){
         return view('admin.reportes.panel-reportes');
     });

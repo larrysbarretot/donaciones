@@ -13,7 +13,7 @@
                             <a class="" href="/nueva-donacion/paso-1">Nueva donación</a>
                         </li>
                         <li class="list-group-item">
-                            <a class="" href="#">Donaciones que he registrado</a>
+                            <a class="" href="/registros">Donaciones que he registrado</a>
                         </li>
                         <li class="list-group-item">
                             <a class="" href="#">Entregar donación</a>

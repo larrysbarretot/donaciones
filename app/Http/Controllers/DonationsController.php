@@ -73,6 +73,15 @@ class DonationsController extends Controller
         $producto->donantes_id = $donante->id;
         $producto->donacion_id = null;
         $producto->save();
-        return "Gracias por donar";
+        return redirect('/home');
+    }
+
+    public function misRegistros()
+    {
+        $productos = Producto::where('receptores_id', '=', Auth::user()->receptor->id)->get();
+        $data = [
+            'productos' => $productos
+        ];
+        return view('admin.donaciones-registradas.mis-registros', $data);
     }
 }
