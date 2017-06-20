@@ -38,11 +38,11 @@ class Producto extends Model
 
     public function subcategoria()
     {
-        return $this->belongsTo('App\SubcategoriaProducto', 'subcategorias_productos_id');
+        return $this->belongsTo(SubcategoriaProducto::class, "subcategorias_productos_id");
     }
 
-    public function siniestro()
+    public function categoria()
     {
-        return $this->belongsTo('App\Siniestro', 'siniestros_id');
-    }    
+        return $this->belongsTo(CategoriaProducto::class, "categorias_productos_id");
+    }
 }

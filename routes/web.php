@@ -17,9 +17,7 @@ Route::get('/', function () {
     return view('layout.base');
 });
 
-Route::get('/my-donations', function () {
-    return view('my-donations');
-});
+Route::get('/my-donations', 'DonationsController@index');
 
 Route::resource('receiver', 'ReceiverController');
 

@@ -19,7 +19,7 @@ class DonationsController extends Controller
      */
     public function index()
     {
-        $donations = Donacion::with(['damnificados', 'productos'])->get();
+        $donations = Donacion::with(['damnificado', 'productos.subcategoria', 'donante', 'acopio'])->paginate(5);
 
         return view("my-donations", ["donations"=>$donations]);
     }

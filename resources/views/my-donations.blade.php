@@ -23,39 +23,26 @@
 			  	<th>Categoría</th>
 			  	<th>Cantidad</th>
 			  	<th>Fecha</th>
-			  	<th>Hora</th>
 			  	<th>Entregado a</th>
+			  	<th>Lugar de Acopio</th>
 		  	</tr>
 		  </thead>
 		  <tbody>
-		  	<tr>
-		  		<td></td>
-		  		<td>Agua 1L</td>
-		  		<td>5</td>
-		  		<td>30-05-2017</td>
-		  		<td>15:56</td>
-		  		<td>44444444</td>
-		  	</tr>
-		  	<tr>
-		  		<td>12345</td>
-		  		<td>Carpa</td>
-		  		<td>1</td>
-		  		<td>30-05-2017</td>
-		  		<td>15:56</td>
-		  		<td>44444444</td>
-		  	</tr>
-            @foreach ($donations as $donation)
+            @foreach ($donations as $donacion)
+                @foreach($donacion->productos as $producto)
                 <tr>
-                    <td></td>
-                    <td>Agua 1L</td>
-                    <td>5</td>
-                    <td>30-05-2017</td>
-                    <td>15:56</td>
-                    <td>44444444</td>
+                    <td>{{$producto->codigo}}</td>
+                    <td>{{$producto->categoria->nombre}}</td>
+                    <td>{{$producto->cantidad}}</td>
+                    <td>{{$donacion->created_at}}</td>
+                    <td>{{$donacion->donante->dni}}</td>
+                    <td>{{$donacion->acopio->nombre}}</td>
                 </tr>
+                @endforeach
             @endforeach
 		  </tbody>
 		</table>
+        {{$donations->links()}}
 	</div>
 </div>
 @endsection
