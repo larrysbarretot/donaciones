@@ -10,7 +10,9 @@ class Donacion extends Model
 
     protected $fillable = [
         'damnificados_id',
-        'productos_id'
+        'donante_id',
+        'siniestros_id',
+        'acopios_id',
     ];
 
     public function damnificados()
@@ -20,6 +22,6 @@ class Donacion extends Model
 
     public function productos()
     {
-        return $this->belongsTo(Producto::class, "productos_id");
+        return $this->hasMany(Producto::class, "productos_id");
     }
 }

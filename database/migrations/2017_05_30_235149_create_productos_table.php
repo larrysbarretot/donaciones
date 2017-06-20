@@ -18,8 +18,6 @@ class CreateProductosTable extends Migration
             $table->string('codigo')->unique()->nullable();
             $table->integer('cantidad');
             $table->integer('entregado')->default(0);
-            $table->integer('siniestros_id')->unsigned();
-            $table->integer('acopios_id')->unsigned();
             $table->integer('categorias_productos_id')->unsigned();
             $table->integer('subcategorias_productos_id')->unsigned();
             $table->integer('receptores_id')->unsigned()->nullable();
@@ -29,7 +27,6 @@ class CreateProductosTable extends Migration
 
             $table->foreign('donantes_id')->references('id')->on('donantes');
             $table->foreign('donacion_id')->references('id')->on('donaciones');
-            $table->foreign('siniestros_id')->references('id')->on('siniestros');
             $table->foreign('categorias_productos_id')->references('id')->on('categorias_productos');
             $table->foreign('subcategorias_productos_id')->references('id')->on('subcategorias_productos');
             $table->foreign('receptores_id')->references('id')->on('receptores');

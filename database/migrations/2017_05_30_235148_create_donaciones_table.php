@@ -17,9 +17,12 @@ class CreateDonacionesTable extends Migration
             $table->increments('id');
             $table->integer('damnificados_id')->unsigned()->nullable();
             $table->integer('donante_id')->unsigned();
+            $table->integer('siniestros_id')->unsigned();
+            $table->integer('acopios_id')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign('donante_id')->references('id')->on('donantes');
+            $table->foreign('siniestros_id')->references('id')->on('siniestros');
             $table->foreign('damnificados_id')->references('id')->on('damnificados');
         });
     }
