@@ -8,8 +8,13 @@ class Acopio extends Model
 {
     protected $table = 'acopios';
 
-    public function receptores()
+    public function voluntarios()
     {
-        return $this->belongsToMany(Receptor::class);
+        return $this->hasMany(Voluntario::class, 'acopios_id');
+    }
+
+    public function lugares_oficiales()
+    {
+    	return $this->hasMany(LugarOficial::class, 'acopios_id');
     }
 }

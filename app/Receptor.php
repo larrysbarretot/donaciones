@@ -8,9 +8,9 @@ class Receptor extends Model
 {
     protected $table = 'receptores';
 
-    public function acopios()
+    public function voluntarios()
     {
-        return $this->belongsToMany(Acopio::class);
+        return $this->hasMany(Voluntario::class, 'receptores_id');
     }
 
     public function user()

@@ -16,5 +16,15 @@ class ReceptoresSeeder extends Seeder
         $receptor->dni = 44556677;
         $receptor->user_id = 1;
         $receptor->save();
+
+        $receptor = new Receptor();
+        $receptor->dni = 41516677;
+        $receptor->user_id = 2;
+        $receptor->save();
+
+        $receptor = new Receptor();
+        $receptor->dni = 88996677;
+        $receptor->user_id = 3;
+        $receptor->save();
     }
 }

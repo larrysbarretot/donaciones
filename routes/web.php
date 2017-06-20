@@ -37,5 +37,6 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('/paso-2', 'DonationsController@donacionPaso2');
 
+        Route::get('/terminado', 'DonationsController@terminado');
     });
 });

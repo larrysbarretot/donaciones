@@ -9,7 +9,7 @@
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <form class="form-horizontal" role="form" method="GET" action="/nueva-donacion/paso-2">
+                <form class="form-horizontal" role="form" method="GET" action="/nueva-donacion/terminado">
                     {{ csrf_field() }}
                     <br/>
                     <div class="form-group">
@@ -25,7 +25,7 @@
                             <label class="label-control " for="cantidad" required="true">Cantidad: </label>
                         </div>
                         <div class="col-md-3">
-                            <input type="number" class="form-control" name="cantidad"/>
+                            <input type="number" class="form-control" name="cantidad" min="1" value="1"/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -54,6 +54,7 @@
                             </select>
                         </div>
                     </div>
+                    <input type="hidden" name="dni" value="{{$dni}}">
                     <div class="form-group">
                         <div class="col-md-2 col-md-offset-2">
                             <button type="submit" class="btn btn-primary">Terminar</button>
@@ -93,16 +94,16 @@
                             <td>12:53:00</td>
                             <td>entregado</td>
                         </tr>
-                        {{--@foreach($donaciones as $donacion)
+                        @foreach($donante->productos as $producto)
                             <tr>
-                                <td>$donacion->dni</td>
-                                <td>$donacion->codigo</td>
-                                <td>$donacion->categoria</td>
-                                <td>$donacion->cantidad</td>
-                                <td>$donacion->fecha</td>
-                                <td>$donacion->hora</td>
+                                <td>{{$donante->dni}}</td>
+                                <td>{{$producto->codigo}}</td>
+                                <td>{{$producto->categoria}}</td>
+                                <td>{{$producto->cantidad}}</td>
+                                <td>{{$producto->fecha}}</td>
+                                <td>{{$producto->hora}}</td>
                             </tr>
-                        @endforeach--}}
+                        @endforeach
                     </tbody>
                 </table>
 
