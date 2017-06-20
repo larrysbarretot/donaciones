@@ -15,16 +15,19 @@ class VoluntarioSeeder extends Seeder
         $voluntario = new Voluntario();
         $voluntario->acopios_id = 1;
         $voluntario->user_id = 1;
+        $voluntario->estado = 1;
         $voluntario->save();
 
         $voluntario = new Voluntario();
         $voluntario->acopios_id = 1;
         $voluntario->user_id = 2;
+        $voluntario->estado = 1;
         $voluntario->save();
 
         $voluntario = new Voluntario();
         $voluntario->acopios_id = 1;
         $voluntario->user_id = 3;
+        $voluntario->estado = 1;
         $voluntario->save();
 
     }

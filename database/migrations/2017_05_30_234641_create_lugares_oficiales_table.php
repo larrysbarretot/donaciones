@@ -17,6 +17,7 @@ class CreateLugaresOficialesTable extends Migration
             $table->increments('id');
             $table->integer('siniestros_id')->unsigned();
             $table->integer('acopios_id')->unsigned();
+            $table->integer('estado')->unsigned(); // 1: un acopio sirve para un solo siniestro, mientras el tiempo de donaciones dure.
             $table->timestamps();
 
             $table->foreign('siniestros_id')->references('id')->on('siniestros');
