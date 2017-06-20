@@ -22,7 +22,7 @@ class CreateProductosTable extends Migration
             $table->integer('subcategorias_productos_id')->unsigned();
             $table->integer('receptores_id')->unsigned()->nullable();
             $table->integer('donantes_id')->unsigned();
-            $table->integer('donacion_id')->unsigned();
+            $table->integer('donacion_id')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign('donantes_id')->references('id')->on('donantes');

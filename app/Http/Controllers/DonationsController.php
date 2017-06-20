@@ -31,6 +31,7 @@ class DonationsController extends Controller
     public function donacionPaso2(Request $request) {
         $dni = $request->get('dni');
         $donante = Donante::where('dni', '=', $dni)->first();
+
         $data = [
             'dni' => $dni,
             'categorias' => CategoriaProducto::all(),
@@ -64,12 +65,13 @@ class DonationsController extends Controller
         $producto->codigo = $codigo;
         $producto->cantidad = $cantidad;
         $producto->entregado = 0; // 0: no entregado, 1: entregado
-        $producto->siniestros_id = $receptor->voluntarios()->where('estado', '=', '1')->first()->acopio->lugares_oficiales()->where('estado', '=', '1')->first()->siniestros_id;
-        $producto->acopios_id = $receptor->voluntarios()->where('estado', '=', '1')->first()->acopios_id;
+        //$producto->siniestros_id = $receptor->voluntarios()->where('estado', '=', '1')->first()->acopio->lugares_oficiales()->where('estado', '=', '1')->first()->siniestros_id;
+        //$producto->acopios_id = $receptor->voluntarios()->where('estado', '=', '1')->first()->acopios_id;
         $producto->categorias_productos_id = $categoria;
         $producto->subcategorias_productos_id = $subcategoria;
         $producto->receptores_id = $receptor->id;
         $producto->donantes_id = $donante->id;
+        $producto->donacion_id = null;
         $producto->save();
         return "Gracias por donar";
     }

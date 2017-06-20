@@ -84,26 +84,32 @@
                         <th>Estado</th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>47676481</td>
-                            <td>01231</td>
-                            <td>Abarrotes</td>
-                            <td>Aceite</td>
-                            <td>2</td>
-                            <td>2017/10/06</td>
-                            <td>12:53:00</td>
-                            <td>entregado</td>
-                        </tr>
-                        @foreach($donante->productos as $producto)
-                            <tr>
-                                <td>{{$donante->dni}}</td>
-                                <td>{{$producto->codigo}}</td>
-                                <td>{{$producto->categoria}}</td>
-                                <td>{{$producto->cantidad}}</td>
-                                <td>{{$producto->fecha}}</td>
-                                <td>{{$producto->hora}}</td>
-                            </tr>
-                        @endforeach
+                        @if($donante)
+                            @foreach($donante->productos as $producto)
+                                <tr>
+                                    <td>{{$donante->dni}}</td>
+                                    <td>{{$producto->codigo}}</td>
+                                    @if($producto->categoria)
+                                    <td>{{$producto->categoria->nombre}}</td>
+                                    @else
+                                    <td></td>
+                                    @endif
+                                    @if($producto->subcategoria)
+                                    <td>{{$producto->subcategoria->nombre}}</td>
+                                    @else
+                                    <td></td>
+                                    @endif
+                                    <td>{{$producto->cantidad}}</td>
+                                    <td>{{$producto->created_at->format('d/m/Y')}}</td>
+                                    <td>{{$producto->created_at->format('H:m:s')}}</td>
+                                    @if($producto->entregado == 1)
+                                    <td>Entregado</td>
+                                    @else
+                                    <td>No entregado</td>
+                                    @endif
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
 
