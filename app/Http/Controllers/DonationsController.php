@@ -84,4 +84,53 @@ class DonationsController extends Controller
         ];
         return view('admin.donaciones-registradas.mis-registros', $data);
     }
+
+    public function entregarDonacionPaso1() {
+        return view('admin.entrega-donacion.paso1');
+    }
+
+    public function entregarDonacionPaso2(Request $request) {
+        $dni = $request->get('dni');
+        //$donante = Donante::where('dni', '=', $dni)->first();
+        $donaciones = Donacion::with(['damnificado', 'productos.subcategoria', 'donante', 'acopio'])->paginate(5);
+        $data = [
+            'dni' => $dni,
+            'categorias' => CategoriaProducto::all(),
+            'subcategorias' => SubcategoriaProducto::all(),
+            'donaciones' => $donaciones
+        ];
+        
+        return view('admin.entrega-donacion.paso2', $data);
+    }
+
+    /**
+    *
+    * Guarda el registro de una entrega de donacion a un damnificado
+    */
+    public function storeEntrega(Request $request) {
+        // donante
+        $dni = $request->get('dni');
+        // donacion
+        $codigo = $request->get('codigo');                            
+        $damnificado = Damnificado::where("dni", $dni)->first();
+        if(!$damnificado) {
+            $donante = new Donante;
+            $donante->dni = $dni;
+            $donante->save();
+        }
+
+        $producto = new Producto;
+        $producto->codigo = $codigo;
+        $producto->cantidad = $cantidad;
+        $producto->entregado = 0; // 0: no entregado, 1: entregado
+        //$producto->siniestros_id = $receptor->voluntarios()->where('estado', '=', '1')->first()->acopio->lugares_oficiales()->where('estado', '=', '1')->first()->siniestros_id;
+        //$producto->acopios_id = $receptor->voluntarios()->where('estado', '=', '1')->first()->acopios_id;
+        $producto->categorias_productos_id = $categoria;
+        $producto->subcategorias_productos_id = $subcategoria;
+        $producto->receptores_id = $receptor->id;
+        $producto->donantes_id = $donante->id;
+        $producto->donacion_id = null;
+        $producto->save();
+        return redirect('/home');
+    }
 }

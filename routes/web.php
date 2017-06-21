@@ -40,6 +40,15 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/terminado', 'DonationsController@terminado');
     });
 
+    Route::group(['prefix' => '/entregar-donacion'], function () {
+
+        Route::get('/paso-1', 'DonationsController@entregarDonacionPaso1');
+
+        Route::get('/paso-2', 'DonationsController@entregarDonacionPaso2');
+
+        Route::get('/terminado', 'DonationsController@storeEntrega');
+    });
+
     Route::get('/registros', 'DonationsController@misRegistros');
 
     Route::get('/reportes', function(){
