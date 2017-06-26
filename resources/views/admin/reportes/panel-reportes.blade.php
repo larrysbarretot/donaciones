@@ -22,6 +22,9 @@
                             <li class="list-group-item">
                                 <a class="" href="/reportes/donaciones">Reporte de donaciones</a>
                             </li>
+                            <li class="list-group-item">
+                                <a class="" href="/reportes/donaciones-por-hora">Reporte de donaciones por Hora</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

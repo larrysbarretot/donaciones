@@ -14,7 +14,7 @@ class DonacionSeeder extends Seeder
     public function run()
     {
         $faker = Factory::create();
-        for($i=1; $i<=20; $i++){
+        for($i=1; $i<=500; $i++){
             Donacion::create([
                 'damnificados_id' => null,
                 'donante_id' => $i,

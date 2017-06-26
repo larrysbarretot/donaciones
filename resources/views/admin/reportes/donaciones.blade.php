@@ -34,7 +34,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            {{--{{$donations->links()}}--}}
+                            {{$donaciones->links()}}
                         </div>
                     </div>
                 </div>

@@ -27,14 +27,13 @@ class ProductoSeeder extends Seeder
             ],
         ];
 
-        for($i=1; $i<=20; $i++){//donantes y donaciones(tienen el mismo id)
+        for($i=1; $i<=500; $i++){//donantes y donaciones(tienen el mismo id)
             for($j=0; $j<$faker->numberBetween(1, 50); $j++){//cantidad de productos
-                $subcategoria = $faker->numberBetween(1, 16);
                 $subcategoria = SubcategoriaProducto::find($faker->numberBetween(1, 16));
                 $donacion = Donacion::find($i);
                 \App\Producto::create([
                     'codigo' => $faker->randomNumber(8),
-                    'cantidad' => $faker->numberBetween(5, 20),
+                    'cantidad' => $faker->numberBetween(1, 20),
                     'categorias_productos_id' => $subcategoria->categorias_productos_id,
                     'subcategorias_productos_id' => $subcategoria->id,
                     'receptores_id' => null,

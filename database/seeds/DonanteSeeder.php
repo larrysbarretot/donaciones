@@ -14,7 +14,7 @@ class DonanteSeeder extends Seeder
     public function run()
     {
 
-        for($i=0; $i<20; $i++){
+        for($i=0; $i<500; $i++){
             $faker = Factory::create();
             $damnificado = new Donante();
             $damnificado->dni = $faker->randomNumber(8);
