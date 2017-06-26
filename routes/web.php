@@ -60,4 +60,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/reportes/productos-sin-donar', 'Reportes\ReporteProductosController@productosSinDonar');
 
     Route::get('/reportes/donaciones', 'Reportes\ReporteDonacionesController@donaciones');
+
+    Route::get('/reportes/donaciones-por-hora', 'Reportes\ReporteDonacionesController@donacionesPorHora');
+
+    Route::get('/reportes/donaciones-por-hora-grafico', 'Reportes\ReporteDonacionesController@donacionesPorHoraGrafico');
 });

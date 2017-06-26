@@ -27,7 +27,7 @@ class ReporteProductosController extends Controller
                     \DB::raw("SUM(productos.cantidad) as cantidad")
                 );
 
-        $productos = $query->get();
+        $productos = $query->paginate();
         return view("admin.reportes.productos", ["productos"=>$productos]);
     }
 
@@ -54,7 +54,7 @@ class ReporteProductosController extends Controller
                 "productos.created_at as fecha"
             );
 
-        $productos = $query->get();
+        $productos = $query->paginate();
         return view("admin.reportes.productos-sin-donar", ["productos"=>$productos]);
     }
 }
